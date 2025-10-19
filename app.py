@@ -215,7 +215,7 @@ def scrape_profile_page(page, profileurl):
 def scrape_all_profiles():
     scrapeddata = []
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
+        browser = p.chromium.launch(headless=False)
         if os.path.exists(AUTH_FILE_PATH):
             context = browser.new_context(storage_state=AUTH_FILE_PATH)
         else:
@@ -295,3 +295,4 @@ def download():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
